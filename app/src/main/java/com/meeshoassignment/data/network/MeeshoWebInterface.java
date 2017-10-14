@@ -1,6 +1,9 @@
 package com.meeshoassignment.data.network;
 
+import com.meeshoassignment.data.retrofit.PullRequest;
 import com.meeshoassignment.data.retrofit.PullRequestResponse;
+
+import java.util.List;
 
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -14,8 +17,8 @@ import rx.Observable;
 
 public interface MeeshoWebInterface {
     @GET("/repos/{owner}/{repo}/pulls")
-    Observable<PullRequestResponse> getPullRequests(@Path("owner") String owner,
-                                                    @Path("repo") String repo);
+    Observable<List<PullRequest>> getPullRequests(@Path("owner") String owner,
+                                                  @Path("repo") String repo);
 
 }
 

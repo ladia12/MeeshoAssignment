@@ -52,6 +52,5 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     public void openPrListActivity() {
         Intent intent = new Intent(this, PrListActivity.class);
         startActivity(intent);
-        finish();
     }
 }

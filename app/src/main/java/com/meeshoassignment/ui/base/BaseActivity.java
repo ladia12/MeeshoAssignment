@@ -6,22 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-
 /**
  * Created by root on 9/12/17.
  */
 
 public abstract class BaseActivity extends AppCompatActivity implements BaseUIUpdateListener {
-
-
-    public void showSnackBar(String message) {
-        Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content),
-                message, Snackbar.LENGTH_SHORT);
-        View sbView = snackbar.getView();
-        TextView textView = (TextView) sbView
-                .findViewById(android.support.design.R.id.snackbar_text);
-        snackbar.show();
-    }
 
     @Override
     public void showLoading() {
@@ -35,6 +24,6 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseUIUp
 
     @Override
     public void showError(Throwable error) {
-
+        error.printStackTrace();
     }
 }

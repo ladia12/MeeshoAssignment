@@ -1,6 +1,7 @@
-package com.meeshoassignment.ui.main;
+package com.meeshoassignment.ui.prlist;
 
 import com.meeshoassignment.data.di.ActivityScope;
+import com.meeshoassignment.ui.main.MainContract;
 
 import dagger.Module;
 import dagger.Provides;
@@ -10,17 +11,17 @@ import dagger.Provides;
  */
 
 @Module
-public class MainModule {
-    private final MainContract.View mView;
+public class PrModule {
+    private final PrContract.View mView;
 
 
-    public MainModule(MainContract.View mView) {
+    public PrModule(PrContract.View mView) {
         this.mView = mView;
     }
 
     @Provides
     @ActivityScope
-    MainContract.View providesMainContractView() {
+    PrContract.View providesPrContractView() {
         return mView;
     }
 }
