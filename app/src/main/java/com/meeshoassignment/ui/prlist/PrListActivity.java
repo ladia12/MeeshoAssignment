@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.meeshoassignment.R;
 import com.meeshoassignment.app.MeeshoApplication;
@@ -23,6 +24,7 @@ public class PrListActivity extends BaseActivity implements PrContract.View {
 
     @Inject PrPresenter prPresenter;
     @BindView(R.id.recycler_view) RecyclerView mRecyclerView;
+    @BindView(R.id.progress) View progress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,17 +39,23 @@ public class PrListActivity extends BaseActivity implements PrContract.View {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(layoutManager);
+        progress.setVisibility(View.VISIBLE);
         prPresenter.getPrList();
     }
 
     @Override
     public void showContent(Object items) {
+        progress.setVisibility(View.GONE);
         ArrayList<PullRequest> pullRequests = (ArrayList<PullRequest>) items;
         PrListAdapter adpater = new PrListAdapter(pullRequests, this);
         mRecyclerView.setAdapter(adpater);
     }
 
-
+    @Override
+    public void showError(Throwable error) {
+        error.printStackTrace();
+        progress.setVisibility(View.GONE);
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

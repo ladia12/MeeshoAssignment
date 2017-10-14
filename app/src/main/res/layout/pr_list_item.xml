@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp">
 
-        <TextView
+        <com.meeshoassignment.custom_views.TextViewLatoBold
             android:id="@+id/number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -20,7 +20,7 @@
             android:alpha="0.66"
             android:text="#1"/>
 
-        <TextView
+        <com.meeshoassignment.custom_views.TextViewLato
             android:id="@+id/body"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

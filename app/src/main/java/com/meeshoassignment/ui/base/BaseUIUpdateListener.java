@@ -5,9 +5,6 @@ package com.meeshoassignment.ui.base;
  */
 
 public interface BaseUIUpdateListener {
-    void showLoading();
-
-    void hideLoading();
 
     void showError(Throwable error);
 }
