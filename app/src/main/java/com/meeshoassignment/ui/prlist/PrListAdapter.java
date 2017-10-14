@@ -36,7 +36,7 @@ public class PrListAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         PrViewHolder viewHolder = (PrViewHolder) holder;
         viewHolder.body.setText(mData.get(position).getTitle());
-        viewHolder.body.setText("#" + mData.get(position).getNumber());
+        viewHolder.number.setText("#" + mData.get(position).getNumber());
     }
 
     @Override
